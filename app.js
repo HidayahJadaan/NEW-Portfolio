@@ -2,43 +2,40 @@ const video1 = document.getElementById('projectVideo1');
 const video2 = document.getElementById('projectVideo2');
 const video3 = document.getElementById('projectVideo3');
 
-// Sidebar elements //
 const sideBar = document.querySelector('.sidebar');
 const menu = document.querySelector('.menu-icon');
-const closeIcon = document.querySelector('.close-icon')
-
-
+const closeIcon = document.querySelector('.close-icon');
 const hoverSign = document.querySelector('.hover-sign');
 
-const videoList =[video1, video2, video3];
+const videoList = [video1, video2, video3];
 
-videoList.forEach (function(video){
-    video.addEventListener("mouseover", function(){
-        video.play()
-        hoverSign.classList.add("active")
-    })
-    video.addEventListener("mouseout", function(){
-    video.pause();
-    hoverSign.classList.remove("active")
-})
-})
+videoList.forEach((video) => {
+    if (!video) return;
 
-// Sidebar elements //
-menu.addEventListener("click", function(){
-    sideBar.classList.remove("close-sidebar")
-    sideBar.classList.add("open-sidebar")
+    video.addEventListener('mouseover', () => {
+        video.play();
+        if (hoverSign) hoverSign.classList.add('active');
+    });
+
+    video.addEventListener('mouseout', () => {
+        video.pause();
+        if (hoverSign) hoverSign.classList.remove('active');
+    });
 });
 
-closeIcon.addEventListener("click", function(){
-    sideBar.classList.remove("open-sidebar");
-    sideBar.classList.add("close-sidebar");
-    
-})
+if (menu && sideBar) {
+    menu.addEventListener('click', () => {
+        sideBar.classList.remove('close-sidebar');
+        sideBar.classList.add('open-sidebar');
+    });
+}
 
-// =============== 
-/* =========================================================
-   AOS INITIALIZATION
-========================================================= */
+if (closeIcon && sideBar) {
+    closeIcon.addEventListener('click', () => {
+        sideBar.classList.remove('open-sidebar');
+        sideBar.classList.add('close-sidebar');
+    });
+}
 
 AOS.init({
     duration: 900,
@@ -46,180 +43,73 @@ AOS.init({
     offset: 100
 });
 
+const typingElement = document.getElementById('typing');
 
-/* =========================================================
-   TYPING EFFECT
-========================================================= */
+if (typingElement) {
+    const words = [
+        'Full Stack Web Developer',
+        'QA Engineer',
+        'Software Tester',
+        'Automation Tester',
+        'Problem Solver'
+    ];
 
-const typingElement =
-    document.getElementById("typing");
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
 
-const words = [
-    "Full Stack Web Developer",
-    "QA Engineer",
-    "Software Tester",
-    "Automation Tester",
-    "Problem Solver"
-];
+    const typeEffect = () => {
+        const currentWord = words[wordIndex];
 
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
+        if (!deleting) {
+            typingElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
 
-
-function typeEffect() {
-
-    const currentWord =
-        words[wordIndex];
-
-
-    if (!deleting) {
-
-        typingElement.textContent =
-            currentWord.substring(
-                0,
-                charIndex + 1
-            );
-
-        charIndex++;
-
-
-        if (
-            charIndex ===
-            currentWord.length
-        ) {
-
-            deleting = true;
-
-            setTimeout(
-                typeEffect,
-                1800
-            );
-
-            return;
-        }
-
-    } else {
-
-        typingElement.textContent =
-            currentWord.substring(
-                0,
-                charIndex - 1
-            );
-
-        charIndex--;
-
-
-        if (charIndex === 0) {
-
-            deleting = false;
-
-            wordIndex++;
-
-            if (
-                wordIndex ===
-                words.length
-            ) {
-                wordIndex = 0;
+            if (charIndex === currentWord.length) {
+                deleting = true;
+                setTimeout(typeEffect, 1800);
+                return;
             }
+        } else {
+            typingElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
 
+            if (charIndex === 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
         }
 
-    }
+        const speed = deleting ? 45 : 90;
+        setTimeout(typeEffect, speed);
+    };
 
-
-    const speed =
-        deleting
-            ? 45
-            : 90;
-
-
-    setTimeout(
-        typeEffect,
-        speed
-    );
+    typeEffect();
 }
 
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-typeEffect();
+window.addEventListener('scroll', () => {
+    let current = '';
 
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 250;
+        const sectionHeight = section.offsetHeight;
 
-/* =========================================================
-   NAVBAR ACTIVE LINK
-========================================================= */
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
 
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
+    navLinks.forEach((link) => {
+        link.classList.remove('active');
 
-const navLinks =
-    document.querySelectorAll(
-        ".nav-links a"
-    );
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        let current = "";
-
-        sections.forEach(
-            section => {
-
-                const sectionTop =
-                    section.offsetTop - 180;
-
-                const sectionHeight =
-                    section.offsetHeight;
-
-                if (
-                    window.scrollY >=
-                    sectionTop
-                    &&
-                    window.scrollY <
-                    sectionTop +
-                    sectionHeight
-                ) {
-
-                    current =
-                        section.getAttribute(
-                            "id"
-                        );
-
-                }
-
-            }
-        );
-
-
-        navLinks.forEach(
-            link => {
-
-                link.classList.remove(
-                    "active"
-                );
-
-
-                if (
-                    link.getAttribute(
-                        "href"
-                    ) ===
-                    "#" + current
-                ) {
-
-                    link.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
 
 
 /* =========================================================
