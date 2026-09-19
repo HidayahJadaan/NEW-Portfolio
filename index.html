@@ -90,7 +90,7 @@
 
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
 
             padding: 15px 25px;
 
@@ -117,6 +117,9 @@
         }
 
         .nav-links {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             align-items: center;
             gap: 30px;
@@ -162,6 +165,8 @@
         }
 
         .nav-btn {
+            position: relative;
+            z-index: 1;
             padding: 10px 18px;
 
             border: 1px solid #8b5cf6;
@@ -174,9 +179,21 @@
             transition: 0.3s ease;
         }
 
+        .nav-cta {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
         .nav-btn:hover {
             background: #7c3aed;
             box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-50%) translateY(-3px);
         }
 
         .nav-btn::after {
@@ -1141,6 +1158,12 @@
     margin-top: 50px;
 }
 
+#pageNumbers {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .pagination-btn {
     width: 42px;
     height: 42px;
@@ -1616,6 +1639,7 @@
 
                 top: 75px;
                 left: 0;
+                transform: none;
 
                 width: 100%;
 
@@ -1631,6 +1655,7 @@
                 backdrop-filter: blur(20px);
 
                 border: 1px solid rgba(255,255,255,0.1);
+                margin-left: 0;
             }
 
             .nav-links.show {
@@ -1639,6 +1664,10 @@
 
             .nav-links a {
                 font-size: 15px;
+            }
+
+            .nav-cta {
+                right: 55px;
             }
 
             section {
@@ -1724,6 +1753,115 @@
             }
         }
 
+        /* =========================
+           THEME TOGGLE
+        ========================= */
+
+        .theme-toggle {
+            position: absolute;
+            right: 145px;
+            top: 50%;
+            z-index: 3;
+            width: 40px;
+            height: 40px;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 10px;
+            color: #ffffff;
+            background: rgba(255,255,255,0.08);
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: #ffffff;
+            background: #7c3aed;
+            transform: translateY(-50%) translateY(-2px);
+        }
+
+        body.light-theme {
+            background: #eef2f7;
+            color: #172033;
+        }
+
+        body.light-theme .back-vid {
+            opacity: 0.12;
+        }
+
+        body.light-theme .video-overlay {
+            background: rgba(245, 248, 252, 0.88);
+        }
+
+        body.light-theme .navbar,
+        body.light-theme .contact-form,
+        body.light-theme .timeline-content,
+        body.light-theme .project-card,
+        body.light-theme .service-card,
+        body.light-theme .skill-card,
+        body.light-theme .info-card {
+            background: rgba(255,255,255,0.78);
+            border-color: rgba(23,32,51,0.12);
+            box-shadow: 0 10px 35px rgba(57,70,96,0.1);
+        }
+
+        body.light-theme .nav-links a,
+        body.light-theme .social-links a,
+        body.light-theme .project-links a {
+            color: #536078;
+        }
+
+        body.light-theme .nav-links a:hover,
+        body.light-theme .nav-links a.active,
+        body.light-theme .social-links a:hover,
+        body.light-theme .project-links a:hover {
+            color: #6d28d9;
+        }
+
+        body.light-theme section {
+            background-image:
+                linear-gradient(rgba(23,32,51,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(23,32,51,0.05) 1px, transparent 1px);
+        }
+
+        body.light-theme .hero-description,
+        body.light-theme .about-text p,
+        body.light-theme .service-card p,
+        body.light-theme .project-content p,
+        body.light-theme .timeline-content p,
+        body.light-theme .contact-info > p {
+            color: #536078;
+        }
+
+        body.light-theme .contact-item div p,
+        body.light-theme .form-group label {
+            color: #34415a;
+        }
+
+        body.light-theme .form-group input,
+        body.light-theme .form-group textarea {
+            color: #172033;
+            background: rgba(255,255,255,0.72);
+            border-color: rgba(23,32,51,0.16);
+        }
+
+        body.light-theme .theme-toggle {
+            color: #6d28d9;
+            background: rgba(109,40,217,0.1);
+            border-color: rgba(109,40,217,0.25);
+        }
+
+        @media (max-width: 600px) {
+            .theme-toggle {
+                right: 62px;
+                width: 36px;
+                height: 36px;
+            }
+        }
+
     </style>
 </head>
 
@@ -1760,6 +1898,10 @@
                 He<span>daia</span>.
             </a>
 
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+                <i class='bx bx-sun'></i>
+            </button>
+
             <div class="menu-btn" id="menuBtn">
                 <i class='bx bx-menu'></i>
             </div>
@@ -1790,13 +1932,11 @@
                     <a href="#timeline">Timeline</a>
                 </li>
 
-                <li>
-                    <a href="#contact" class="nav-btn">
-                        Let's Talk
-                    </a>
-                </li>
-
             </ul>
+
+            <a href="#contact" class="nav-btn nav-cta">
+                Let's Talk
+            </a>
 
         </nav>
 
@@ -3547,6 +3687,34 @@ function scrollToProjects() {
 /* =========================
    INITIALIZE
 ========================= */
+
+        const themeToggle = document.getElementById("themeToggle");
+        const savedTheme = localStorage.getItem("portfolio-theme");
+
+        function updateThemeButton() {
+            const lightTheme = document.body.classList.contains("light-theme");
+            const icon = themeToggle.querySelector("i");
+            const label = lightTheme ? "Switch to dark theme" : "Switch to light theme";
+
+            icon.className = lightTheme ? "bx bx-moon" : "bx bx-sun";
+            themeToggle.setAttribute("aria-label", label);
+            themeToggle.setAttribute("title", label);
+        }
+
+        if (savedTheme === "light") {
+            document.body.classList.add("light-theme");
+        }
+
+        updateThemeButton();
+
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("light-theme");
+            localStorage.setItem(
+                "portfolio-theme",
+                document.body.classList.contains("light-theme") ? "light" : "dark"
+            );
+            updateThemeButton();
+        });
 
 displayProjects();
 
