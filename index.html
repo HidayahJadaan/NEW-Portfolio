@@ -1,245 +1,643 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hedaia's portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-       <!-- AOS Animation -->
+    <title>Hedaia's Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Boxicons -->
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- AOS Animation -->
     <link
         rel="stylesheet"
         href="https://unpkg.com/aos@next/dist/aos.css"
     >
-
 </head>
+
 <body>
+
+    <!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+    <!-- Logo -->
+    <a href="#home" class="logo">
+        H<span>.</span>
+    </a>
+
+
+    <!-- Navigation -->
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home" class="active">Home</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+            <a href="#services">Services</a>
+        </li>
+
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+            <a href="#timeline">Timeline</a>
+        </li>
+
+    </ul>
+
+
+    <!-- Contact Button -->
+    <a href="#contact" class="nav-contact">
+        Let's Talk
+    </a>
+
+</nav>
+
+    <!-- =========================================================
+         BACKGROUND VIDEO
+    ========================================================== -->
+
+    <video
+        class="back-vid"
+        autoplay
+        loop
+        muted
+        playsinline
+    >
+        <source src="videos/galaxy.mp4" type="video/mp4">
+    </video>
+
+
+    <!-- =========================================================
+         DARK OVERLAY
+    ========================================================== -->
+
+    <div class="video-overlay"></div>
+
+
+    <!-- =========================================================
+         MAIN CONTAINER
+    ========================================================== -->
+
     <div class="container">
-        <video class="back-vid" autoplay loop muted plays-inline src="videos/galaxy.mp4"></video>
 
 
-      
-<section class="hero">
+        <!-- =====================================================
+             HERO SECTION
+        ====================================================== -->
+
+        <section class="hero" id="home">
+
+            <!-- Decorative Squares -->
+            <div class="square square-1"></div>
+            <div class="square square-2"></div>
+            <div class="square square-3"></div>
 
 
-    <!-- Decorative Squares -->
+            <!-- Main Content -->
+            <div class="hero-content">
 
-    <div class="square square-1"></div>
-
-    <div class="square square-2"></div>
-
-    <div class="square square-3"></div>
-
-
-    <!-- Main Content -->
-
-    <div class="hero-content">
+                <div class="small-title">
+                    Welcome to my portfolio
+                </div>
 
 
-        <div class="small-title">
-
-            Welcome to my portfolio
-
-        </div>
+                <h1>
+                    I'm <span>Hedaia.</span>
+                </h1>
 
 
-        <h1>
+                <!-- Auto Typing -->
+                <div class="typing-container">
 
-            I'm <span>Hedaia.</span>
+                    <div class="typing-text">
 
-        </h1>
+                        <span id="typing"></span>
+
+                        <span class="cursor"></span>
+
+                    </div>
+
+                </div>
 
 
-        <!-- Auto Typing -->
+                <!-- Description -->
+                <p class="hero-description">
 
-        <div class="typing-container">
+                    I build modern, scalable web applications
+                    and ensure high-quality software through
+                    professional testing, automation, and
+                    quality assurance.
 
-            <div class="typing-text">
+                </p>
 
-                <span id="typing"></span>
 
-                <span class="cursor"></span>
+                <!-- Buttons -->
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projects"
+                        class="btn primary-btn"
+                    >
+                        View My Work
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="btn secondary-btn"
+                    >
+                        Let's Talk
+                    </a>
+
+                </div>
+
+
+                <!-- Social Links -->
+                <div class="social-links">
+
+                    <a href="#">
+                        <i class="bx bxl-github"></i>
+                        GitHub
+                    </a>
+
+                    <a href="#">
+                        <i class="bx bxl-linkedin-square"></i>
+                        LinkedIn
+                    </a>
+
+                    <a href="mailto:your@email.com">
+                        <i class="bx bx-envelope"></i>
+                        Email
+                    </a>
+
+                </div>
 
             </div>
 
-        </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-down">
+
+                <span>Scroll</span>
+
+                <span class="scroll-line"></span>
+
+            </div>
+
+        </section>
 
 
-        <p class="hero-description">
 
-            I build modern, scalable web applications
-            and ensure high-quality software through
-            professional testing, automation, and
-            quality assurance.
+        <!-- =====================================================
+             ABOUT SECTION
+        ====================================================== -->
 
-        </p>
+        <section class="about" id="about">
 
+            <div class="section-title">
 
-        <!-- Buttons -->
+                <span class="section-number">
+                    01
+                </span>
 
-        <div class="hero-buttons">
+                <h2>
+                    About <span>Me</span>
+                </h2>
 
-            <a
-                href="#projects"
-                class="btn primary-btn"
-            >
-                View My Work
-            </a>
+                <p>
+                    Get to know me and what I do.
+                </p>
 
-
-            <a
-                href="#contact"
-                class="btn secondary-btn"
-            >
-                Let's Talk
-            </a>
-
-        </div>
+            </div>
 
 
-        <!-- Social -->
+            <div class="about-container">
 
-        <div class="social-links">
 
-            <a href="#">
-                GitHub
-            </a>
+                <!-- About Card -->
+                <div class="about-card">
 
-            <a href="#">
-                LinkedIn
-            </a>
+                    <div class="about-icon">
 
-            <a href="#">
-                Email
-            </a>
+                        <i class="bx bx-user"></i>
 
-        </div>
+                    </div>
+
+                    <h3>
+                        Who I Am
+                    </h3>
+
+                    <p>
+
+                        I'm Hedaia Jadaan, a Computer Engineering
+                        graduate passionate about software development,
+                        quality assurance, and technology.
+
+                        <br><br>
+
+                        I enjoy creating digital solutions that combine
+                        clean development with reliable and well-tested
+                        software.
+
+                    </p>
+
+                </div>
+
+
+                <!-- What I Do -->
+                <div class="about-card">
+
+                    <div class="about-icon">
+
+                        <i class="bx bx-code-alt"></i>
+
+                    </div>
+
+                    <h3>
+                        What I Do
+                    </h3>
+
+                    <p>
+
+                        My work combines Full Stack Web Development
+                        with Software Quality Assurance.
+
+                        <br><br>
+
+                        I build responsive web applications, develop APIs,
+                        work with databases, write test cases, perform
+                        software testing, report bugs, and explore
+                        test automation.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Information Boxes -->
+            <div class="about-info">
+
+                <div class="info-box">
+
+                    <i class="bx bx-graduation"></i>
+
+                    <span>
+                        Education
+                    </span>
+
+                    <strong>
+                        Computer Engineering
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <i class="bx bx-code-curly"></i>
+
+                    <span>
+                        Role
+                    </span>
+
+                    <strong>
+                        Full Stack Developer
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <i class="bx bx-check-shield"></i>
+
+                    <span>
+                        Specialization
+                    </span>
+
+                    <strong>
+                        QA & Software Testing
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <i class="bx bx-map"></i>
+
+                    <span>
+                        Location
+                    </span>
+
+                    <strong>
+                        Jordan
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROJECTS SECTION
+        ====================================================== -->
+
+        <section class="section" id="projects">
+
+            <div class="section-title">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                <h2>
+                    My <span>Projects</span>
+                </h2>
+
+                <p>
+                    Some of my development and QA projects.
+                </p>
+
+            </div>
+
+
+            <div class="placeholder">
+
+                <i class="bx bx-code-alt"></i>
+
+                <h3>
+                    Projects Coming Soon
+                </h3>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CONTACT SECTION
+        ====================================================== -->
+
+        <section class="section" id="contact">
+
+            <div class="section-title">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                <h2>
+                    Let's <span>Talk</span>
+                </h2>
+
+                <p>
+                    Have a project or opportunity?
+                </p>
+
+            </div>
+
+
+            <div class="placeholder">
+
+                <i class="bx bx-envelope"></i>
+
+                <h3>
+                    Get In Touch
+                </h3>
+
+                <p>
+                    your@email.com
+                </p>
+
+            </div>
+
+        </section>
+
 
     </div>
 
 
-    <!-- Scroll -->
-<!-- 
-    <div class="scroll-down">
 
-        Scroll
+    <!-- =========================================================
+         TYPING EFFECT
+    ========================================================== -->
 
-        <span class="scroll-line"></span>
+    <script>
 
-    </div> -->
-
-
-</section>
-
-        
-    </div>
-    <!-- End of container -->
-   
-</body>
-
-<script>
-
-    const typingElement =
-        document.getElementById("typing");
+        const typingElement =
+            document.getElementById("typing");
 
 
-    const words = [
+        const words = [
 
-        "Full Stack Web Developer",
+            "Full Stack Web Developer",
 
-        "QA Engineer",
+            "QA Engineer",
 
-        "Software Tester",
+            "Software Tester",
 
-        "Automation Tester",
+            "Automation Tester",
 
-        "Problem Solver"
+            "Problem Solver"
 
-    ];
-
-
-    let wordIndex = 0;
-
-    let charIndex = 0;
-
-    let deleting = false;
+        ];
 
 
-    function typeEffect() {
+        let wordIndex = 0;
 
-        const currentWord =
-            words[wordIndex];
+        let charIndex = 0;
 
-
-        if (!deleting) {
-
-            typingElement.textContent =
-                currentWord.substring(
-                    0,
-                    charIndex + 1
-                );
-
-            charIndex++;
+        let deleting = false;
 
 
-            if (
-                charIndex ===
-                currentWord.length
-            ) {
+        function typeEffect() {
 
-                deleting = true;
-
-                setTimeout(
-                    typeEffect,
-                    1800
-                );
-
-                return;
-            }
-
-        } else {
-
-            typingElement.textContent =
-                currentWord.substring(
-                    0,
-                    charIndex - 1
-                );
-
-            charIndex--;
+            const currentWord =
+                words[wordIndex];
 
 
-            if (charIndex === 0) {
+            if (!deleting) {
 
-                deleting = false;
+                typingElement.textContent =
+                    currentWord.substring(
+                        0,
+                        charIndex + 1
+                    );
 
-                wordIndex++;
+                charIndex++;
+
 
                 if (
-                    wordIndex ===
-                    words.length
+                    charIndex ===
+                    currentWord.length
                 ) {
-                    wordIndex = 0;
+
+                    deleting = true;
+
+                    setTimeout(
+                        typeEffect,
+                        1800
+                    );
+
+                    return;
+
                 }
+
             }
+
+            else {
+
+                typingElement.textContent =
+                    currentWord.substring(
+                        0,
+                        charIndex - 1
+                    );
+
+                charIndex--;
+
+
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    wordIndex++;
+
+
+                    if (
+                        wordIndex ===
+                        words.length
+                    ) {
+
+                        wordIndex = 0;
+
+                    }
+
+                }
+
+            }
+
+
+            const speed =
+                deleting ? 45 : 90;
+
+
+            setTimeout(
+                typeEffect,
+                speed
+            );
+
         }
 
 
-        const speed =
-            deleting ? 45 : 90;
+        typeEffect();
 
 
-        setTimeout(
-            typeEffect,
-            speed
-        );
-    }
+        /* =========================================================
+   ACTIVE NAVBAR LINK
+========================================================= */
+
+const sections = document.querySelectorAll("section[id]");
+
+const navLinks = document.querySelectorAll(
+    ".nav-links a"
+);
 
 
-    typeEffect();
+window.addEventListener("scroll", () => {
 
-</script>
+    let currentSection = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 250;
+
+        const sectionHeight =
+            section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY <
+            sectionTop + sectionHeight
+        ) {
+
+            currentSection =
+                section.getAttribute("id");
+
+        }
+
+    });
 
 
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+
+        if (
+            link.getAttribute("href") ===
+            "#" + currentSection
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+    </script>
+
+
+    <!-- =========================================================
+         AOS
+    ========================================================== -->
+
+    <script
+        src="https://unpkg.com/aos@next/dist/aos.js">
+    </script>
+
+
+    <script>
+
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+    </script>
+
+
+</body>
 
 </html>
