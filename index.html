@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hedaia's portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+       <!-- AOS Animation -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/aos@next/dist/aos.css"
+    >
+
+</head>
+<body>
+    <div class="container">
+        <video class="back-vid" autoplay loop muted plays-inline src="videos/galaxy.mp4"></video>
+
+
+      
+<section class="hero">
+
+
+    <!-- Decorative Squares -->
+
+    <div class="square square-1"></div>
+
+    <div class="square square-2"></div>
+
+    <div class="square square-3"></div>
+
+
+    <!-- Main Content -->
+
+    <div class="hero-content">
+
+
+        <div class="small-title">
+
+            Welcome to my portfolio
+
+        </div>
+
+
+        <h1>
+
+            I'm <span>Hedaia.</span>
+
+        </h1>
+
+
+        <!-- Auto Typing -->
+
+        <div class="typing-container">
+
+            <div class="typing-text">
+
+                <span id="typing"></span>
+
+                <span class="cursor"></span>
+
+            </div>
+
+        </div>
+
+
+        <p class="hero-description">
+
+            I build modern, scalable web applications
+            and ensure high-quality software through
+            professional testing, automation, and
+            quality assurance.
+
+        </p>
+
+
+        <!-- Buttons -->
+
+        <div class="hero-buttons">
+
+            <a
+                href="#projects"
+                class="btn primary-btn"
+            >
+                View My Work
+            </a>
+
+
+            <a
+                href="#contact"
+                class="btn secondary-btn"
+            >
+                Let's Talk
+            </a>
+
+        </div>
+
+
+        <!-- Social -->
+
+        <div class="social-links">
+
+            <a href="#">
+                GitHub
+            </a>
+
+            <a href="#">
+                LinkedIn
+            </a>
+
+            <a href="#">
+                Email
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Scroll -->
+<!-- 
+    <div class="scroll-down">
+
+        Scroll
+
+        <span class="scroll-line"></span>
+
+    </div> -->
+
+
+</section>
+
+        
+    </div>
+    <!-- End of container -->
+   
+</body>
+
+<script>
+
+    const typingElement =
+        document.getElementById("typing");
+
+
+    const words = [
+
+        "Full Stack Web Developer",
+
+        "QA Engineer",
+
+        "Software Tester",
+
+        "Automation Tester",
+
+        "Problem Solver"
+
+    ];
+
+
+    let wordIndex = 0;
+
+    let charIndex = 0;
+
+    let deleting = false;
+
+
+    function typeEffect() {
+
+        const currentWord =
+            words[wordIndex];
+
+
+        if (!deleting) {
+
+            typingElement.textContent =
+                currentWord.substring(
+                    0,
+                    charIndex + 1
+                );
+
+            charIndex++;
+
+
+            if (
+                charIndex ===
+                currentWord.length
+            ) {
+
+                deleting = true;
+
+                setTimeout(
+                    typeEffect,
+                    1800
+                );
+
+                return;
+            }
+
+        } else {
+
+            typingElement.textContent =
+                currentWord.substring(
+                    0,
+                    charIndex - 1
+                );
+
+            charIndex--;
+
+
+            if (charIndex === 0) {
+
+                deleting = false;
+
+                wordIndex++;
+
+                if (
+                    wordIndex ===
+                    words.length
+                ) {
+                    wordIndex = 0;
+                }
+            }
+        }
+
+
+        const speed =
+            deleting ? 45 : 90;
+
+
+        setTimeout(
+            typeEffect,
+            speed
+        );
+    }
+
+
+    typeEffect();
+
+</script>
+
+
+
+</html>
